@@ -21,3 +21,12 @@ class OrderPageLocators:
     CONFIRM_BUTTON_YES = (By.XPATH, "//button[text()='Да']")
     CONFIRM_BUTTON_NO = (By.XPATH, "//button[text()='Нет']")
     CHECK_STATUS_OF_ORDER = (By.XPATH, "//*[text()='Посмотреть статус']")
+
+    # Динамика
+    @staticmethod
+    def metro_option(station_name):
+        return By.XPATH, f"//div[text()='{station_name}']"
+
+    @staticmethod
+    def rent_day_option(days_text):
+        return By.XPATH, f"//div[@class='Dropdown-menu']/div[text()='{days_text}']"
