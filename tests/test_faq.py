@@ -5,23 +5,13 @@ from data.faq_data import FaqData
 from data.url_data import MAIN_PAGE_URL
 
 @allure.feature("FAQ")
-@allure.story("Проверка раскрытия ответов на вопросы")
-@pytest.mark.parametrize("index, expected_answer", FaqData.faq_items)
-@allure.title("FAQ: проверка вопроса с индексом #{index}")
-def test_faq_answer(driver, index, expected_answer):
+@allure.story("Проверка отображения ответов на вопросы")
+@pytest.mark.parametrize("index, question, expected_answer", FaqData.faq_items)
+@allure.title("FAQ: '{question}' — проверка отображения ответа")
+def test_faq_question(driver, index, question, expected_answer):
     page = MainPage(driver)
-
-    with allure.step("Открываем главную страницу"):
-        page.open_main_page(MAIN_PAGE_URL)
-
-    with allure.step("Прокручиваем до секции FAQ"):
-        page.scroll_to_faq()
-
-    with allure.step(f"Кликаем на вопрос с индексом {index}"):
-        page.click_faq_question(index)
-
-    with allure.step("Получаем текст ответа"):
-        actual_text = page.get_faq_answer_text(index)
-
-    with allure.step("Проверяем, что ответ содержит ожидаемый текст"):
-        assert expected_answer in actual_text
+    page.open_main_page(MAIN_PAGE_URL)
+    page.scroll_to_faq()
+    page.click_faq_question(index)
+    actual_answer = page.get_faq_answer_text(index)
+    assert actual_answer == expected_answer
