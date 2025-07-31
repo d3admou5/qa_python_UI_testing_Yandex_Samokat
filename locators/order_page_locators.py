@@ -2,16 +2,17 @@ from selenium.webdriver.common.by import By
 
 class OrderPageLocators:
     # Первая форма заказа
+    TITLE_HEADER_FORM1 = (By.XPATH, "//div[contains(text(), 'Для кого самокат')]")
     NAME = (By.XPATH, "//input[@placeholder='* Имя']")
-    SURNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
+    LASTNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
     ADDRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
     METRO_INPUT = (By.XPATH, "//input[@placeholder='* Станция метро']")
     METRO_DROPDOWN_OPTIONS = (By.CLASS_NAME, "select-search__options")
-    METRO_OPTION_BY_TEXT = lambda text: (By.XPATH, f"//div[text()='{text}']")
     PHONE = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
     NEXT_BUTTON = (By.XPATH, "//button[text()='Далее']")
 
     # Вторая форма заказа
+    TITLE_HEADER_FORM2 = (By.XPATH, "//div[contains(text(), 'Про аренду')]")
     DATE = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
     RENT_DAYS_DROPDOWN = (By.CLASS_NAME, "Dropdown-root")
     COMMENT = (By.XPATH, "//input[@placeholder='Комментарий для курьера']")
