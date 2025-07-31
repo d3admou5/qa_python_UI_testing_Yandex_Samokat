@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators:
     # Логотипы
-    SCOOTER_LOGO = (By.CLASS_NAME, "AppHeader_header__logo__2D0X2")
+    SCOOTER_LOGO = (By.XPATH, "//a[contains(@class, 'Header_LogoScooter')]")
     YANDEX_LOGO = (By.XPATH, "//a[contains(@href, 'yandex.ru')]")
 
     # Кнопки заказа

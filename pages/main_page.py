@@ -23,3 +23,11 @@ class MainPage(BasePage):
     def get_faq_answer_text(self, index: int):
         locator = getattr(MainPageLocators, f"FAQ_ANSWER_{index}")
         return self.get_text(locator)
+
+    @allure.step("Кликнуть по логотипу Самоката")
+    def click_scooter_logo(self):
+        self.click(MainPageLocators.SCOOTER_LOGO)
+
+    @allure.step("Кликнуть по логотипу Яндекса")
+    def click_yandex_logo(self):
+        self.click(MainPageLocators.YANDEX_LOGO)

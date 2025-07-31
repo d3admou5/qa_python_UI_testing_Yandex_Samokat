@@ -7,6 +7,7 @@ from data.url_data import MAIN_PAGE_URL
 @allure.feature("FAQ")
 @allure.story("Проверка раскрытия ответов на вопросы")
 @pytest.mark.parametrize("index, expected_answer", FaqData.faq_items)
+@allure.title("FAQ: проверка вопроса с индексом #{index}")
 def test_faq_answer(driver, index, expected_answer):
     page = MainPage(driver)
 
