@@ -6,6 +6,7 @@ from locators.main_page_locators import MainPageLocators as MainLoc
 from data.order_data import User1Data, User2Data
 from data.url_data import MAIN_PAGE_URL
 
+@allure.feature("Оформление заказа")
 @allure.title("Позитивный тест оформления заказа с кнопки '{order_button_name}'")
 @allure.description("Тест проверяет успешное оформление заказа через верхнюю и нижнюю кнопку 'Заказать'")
 @pytest.mark.parametrize("user_data, order_button_locator, order_button_name", [
