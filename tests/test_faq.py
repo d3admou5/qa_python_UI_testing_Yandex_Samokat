@@ -4,6 +4,7 @@ from pages.main_page import MainPage
 from data.faq_data import FaqData
 from data.url_data import MAIN_PAGE_URL
 
+
 @allure.feature("FAQ")
 @allure.story("Проверка отображения ответов на вопросы")
 @pytest.mark.parametrize("index, question, expected_answer", FaqData.faq_items)
