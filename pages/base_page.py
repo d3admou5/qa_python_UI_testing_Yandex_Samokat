@@ -47,3 +47,8 @@ class BasePage:
     @allure.step("Получить заголовок страницы")
     def get_page_title(self):
         return self.driver.title
+
+    @allure.step("Нажать клавишу {key} в элементе")
+    def send_key_to_element(self, locator, key, timeout=10):
+        element = self.wait_for_element(locator, timeout)
+        element.send_keys(key)

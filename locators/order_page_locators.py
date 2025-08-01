@@ -7,27 +7,21 @@ class OrderPageLocators:
     LASTNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
     ADDRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
     METRO_INPUT = (By.XPATH, "//input[@placeholder='* Станция метро']")
-    METRO_DROPDOWN_OPTIONS = (By.CLASS_NAME, "select-search__options")
+    METRO_DROPDOWN_OPTIONS = (By.XPATH, "//*[contains(@class, 'select-search__row')]")
     PHONE = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
-    NEXT_BUTTON = (By.XPATH, "//button[text()='Далее']")
+    NEXT_BUTTON = (By.XPATH, "//button[contains(text(), 'Далее')]")
 
     # Вторая форма заказа
     TITLE_HEADER_FORM2 = (By.XPATH, "//div[contains(text(), 'Про аренду')]")
     DATE = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
-    RENT_DAYS_DROPDOWN = (By.CLASS_NAME, "Dropdown-root")
+    CALENDAR = (By.XPATH, "//div[contains(@class, 'react-datepicker_popper')]")
+    CALENDAR_ITEM = (By.XPATH, "//div[contains(@class, 'react-datepicker')]")
+    RENT_DAYS_DROPDOWN = (By.XPATH, "//*[contains(@class, 'Dropdown-root')]")
+    RENT_DAYS_OPTIONS = (By.XPATH, "//div[contains(@class, 'Dropdown-option')]")
     COMMENT = (By.XPATH, "//input[@placeholder='Комментарий для курьера']")
     COLOR_BLACK = (By.ID, "black")
     COLOR_GREY = (By.ID, "grey")
-    ORDER_BUTTON = (By.XPATH, "//button[text()='Заказать']")
-    CONFIRM_BUTTON_YES = (By.XPATH, "//button[text()='Да']")
-    CONFIRM_BUTTON_NO = (By.XPATH, "//button[text()='Нет']")
-    CHECK_STATUS_OF_ORDER = (By.XPATH, "//*[text()='Посмотреть статус']")
-
-    # Динамика
-    @staticmethod
-    def metro_option(station_name):
-        return By.XPATH, f"//div[text()='{station_name}']"
-
-    @staticmethod
-    def rent_day_option(days_text):
-        return By.XPATH, f"//div[@class='Dropdown-menu']/div[text()='{days_text}']"
+    ORDER_BUTTON = (By.XPATH, "//div[@class='Order_Buttons__1xGrp']/button[text()='Заказать']")
+    CONFIRM_BUTTON_YES = (By.XPATH, "//button[contains(text(), 'Да')]")
+    CONFIRM_BUTTON_NO = (By.XPATH, "//button[contains(text(), 'Нет')]")
+    CHECK_STATUS_OF_ORDER = (By.XPATH, "//*[contains(text(), 'Посмотреть статус')]")
