@@ -16,26 +16,26 @@
 
 ````
 .
-├── data/                                   # Данные для тестов
-│   ├── FAQ_data.py                         # Данные для тестов FAQ
+├── data/                                   
+│   ├── faq_data.py                         # Данные для тестов FAQ
 │   ├── order_data.py                       # Данные для тестов заказов
 │   └── url_data.py                         # URL'ы для тестов
 │ 
-├── locators/                               # Локаторы страниц
+├── locators/                               
 │   ├── main_page_locators.py               # Локаторы главной страницы
-│   └── order_page_locators.py               # Локаторы страницы заказа
+│   └── order_page_locators.py              # Локаторы страницы заказа
 │ 
-├── pages/                                  # Page Object Model (POM) страницы
+├── pages/                                  
 │   ├── base_page.py                        # Базовая страница с общими методами
 │   ├── main_page.py                        # Главная страница
 │   └── order_page.py                       # Страница оформления заказа 
 │ 
-├── tests/                                  # Тесты
+├── tests/                                 
 │   ├── test_faq.py                         # Тесты для FAQ
 │   ├── test_order.py                       # Тесты для оформления заказа
 │   └── test_logo_links.py                  # Тесты для переходов по логотипам
 │ 
-├── conftest.py                             # Фикстуры и настройки Pytest
+├── conftest.py                             # Фикстуры
 ├── requirements.txt                        # Зависимости проекта
 └── README.md                               # Документация проекта
 ````
