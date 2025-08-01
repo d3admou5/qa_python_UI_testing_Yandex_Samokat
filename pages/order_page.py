@@ -1,8 +1,7 @@
-from selenium.webdriver import ActionChains
+import allure
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators as Loc
-from selenium.webdriver.common.keys import Keys
-import allure
+
 
 class OrderPage(BasePage):
 
@@ -26,16 +25,14 @@ class OrderPage(BasePage):
     def fill_second_form(self, user_data):
         with allure.step(f"Выбор даты: {user_data['date']}"):
             self.send_keys_to_input(Loc.DATE, user_data["date"])
-            actions = ActionChains(self.driver)
-            actions.send_keys(Keys.ESCAPE).perform()
+            self.press_escape()
 
         with allure.step(f"Выбор срока аренды: {user_data['rent_days']}"):
-            self.click(Loc.RENT_DAYS_DROPDOWN)
-            rent_options = self.driver.find_elements(*Loc.RENT_DAYS_OPTIONS)
-            for option in rent_options:
-                if user_data["rent_days"].lower() in option.text.lower():
-                    option.click()
-                    break
+            self.select_option_from_dropdown(
+                Loc.RENT_DAYS_DROPDOWN,
+                Loc.RENT_DAYS_OPTIONS,
+                user_data["rent_days"]
+            )
 
         with allure.step(f"Выбор цвета: {user_data['color']}"):
             if user_data["color"].lower() == "grey":
