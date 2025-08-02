@@ -46,15 +46,6 @@ class BasePage:
         element = self.wait_for_element(locator, timeout)
         return element.text
 
-    @allure.step("Получить заголовок страницы")
-    def get_page_title(self):
-        return self.driver.title
-
-    @allure.step("Нажать клавишу {key} в элементе")
-    def send_key_to_element(self, locator, key, timeout=10):
-        element = self.wait_for_element(locator, timeout)
-        element.send_keys(key)
-
     @allure.step("Выбрать значение '{target_text}' из выпадающего списка")
     def select_option_from_dropdown(self, dropdown_locator, options_locator, target_text, timeout=10):
         self.click(dropdown_locator)
@@ -68,3 +59,15 @@ class BasePage:
     @allure.step("Нажать клавишу Escape")
     def press_escape(self):
         ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
+
+    @allure.step("Ожидание, когда URL станет '{expected_url}'")
+    def wait_for_url_to_be(self, expected_url, timeout=10):
+        WebDriverWait(self.driver, timeout).until(EC.url_to_be(expected_url))
+
+    @allure.step("Ожидание, пока URL будет содержать '{partial_url}'")
+    def wait_for_url_to_contain(self, partial_url, timeout=10):
+        WebDriverWait(self.driver, timeout).until(EC.url_contains(partial_url))
+
+    @allure.step("Получить текущий URL")
+    def get_current_url(self):
+        return self.driver.current_url
